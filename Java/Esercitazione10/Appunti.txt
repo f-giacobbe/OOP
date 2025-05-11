@@ -1,0 +1,24 @@
+ESAME:
+    -Scrittura su file
+    -Regex
+
+
+
+
+SERIALIZZAZIONE - conversione dello stato di un oggetto in una sequenza di byte per salvarlo su file
+                  o trasmetterlo, attraverso un SERIALE
+
+Si chiama così in quanto una volta si usava la porta seriale, che trasmetteva un informazione alla
+volta attraverso un ByteStream
+
+Tuttavia, si tratta di un processo poco sicuro, in quanto è molto soggetto a cambi di versione
+
+La classe che implementa l'interfaccia Serializable utilizza le classi ObjectOutputStream e
+ObjectInputStream per trasmettere i dati.
+
+I membri dichiarati transient non vengono salvati. Inoltre, durante la deserializzazione non viene
+usato il costruttore per la ricostruzione dell'oggetto.
+
+
+Di norma ogni classe ha un identificatore serialVersionUID per garantire la compatibilità tra
+versioni.

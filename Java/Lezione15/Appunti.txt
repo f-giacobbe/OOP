@@ -1,0 +1,12 @@
+!!!!Stack<Integer> NON è una sottoclasse di Stack<Number>, nonostante Integer sia sottoclasse di
+Number!!!!
+
+Ecco perché utilizziamo le WildCard, per indicare un tipo generico ma sconosciuto
+
+
+PECS - Producers extend, Consumers super
+producer - prende oggetti
+consumer - inserisce oggetti
+
+
+I wildcard NON possono essere utilizzati per dichiarare variabili

@@ -1,0 +1,30 @@
+--IMPLEMENTAZIONE METODO HASHCODE--
+Se ridefiniamo l'equals, va ridefinito anche l'hashCode
+
+Ci si chiede innanzitutto su quali informazioni si basa il metodo equals (per il Point2D, ad esempio,
+delle coordinate x e y). Di conseguenza la funzione hashCode si dovrà basare sulle stesse
+informazioni.
+
+@Override
+public int hashCode() {
+    int res = 17;   //valore costante iniziale
+    if (b) {
+        res = 31*res + 1;       //se abbiamo un parametro booleano
+    } else {
+        res = 31*res;
+    }
+}
+
+
+--LINEE GUIDA--
+1) Se booleano -> true = 1; false = 0.
+2) Se short, char, byte, int -> (int)v
+3) Se long -> (int)(f ^ (f >>> 32))
+4) Se float -> Float.floatToIntBits(f) (prende il float, vede la sua rappresentazione binaria e
+    restituisce l'intero corrispondente)
+5) Se double -> Double.doubleToLongBits(f)
+                (int)(l ^ (l >>> 32))
+6) Se è un oggetto:
+    -se null -> 0
+    -il suo hashCode
+7) Se Array considero ogni elemento dell'array come un campo separato

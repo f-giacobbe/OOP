@@ -1,0 +1,35 @@
+Java contiene un package java.util.regex utile per utilizzare le regex. L'espressione viene compi-
+lata e riconosciuta tramite un ASF, in quanto per ogni regex esiste un automa che è in grado di
+riconoscerla.
+In particolare torna utile la classe Pattern che compila la regex tramite il metodo statico compile.
+Poi è possibile creare un oggetto Matcher per la verifica di una stringa.
+
+
+matcher.find() -> vede se c'è una sottostringa che rispetta la regex
+matches.matches() -> tutta la stringa deve rispettare la regex
+
+
+
+
+
+
+
+
+L'inheritance può essere bloccata dichiarando una classe final.
+Un interfaccia può consentire SOLO certe sottoclassi definite da noi in questo modo: dichiarando
+un'interfaccia sealed.
+
+    public SEALED interface DocumentElement PERMITS CompositeDocumentElement, Paragraph
+
+
+Ciò comporta che i sottotipi CompositeDocumentElement, ad esempio, sarà:
+
+    public non-sealed interface CompositeDocumentElement extends DocumentElement
+
+oppure
+
+    public final Paragraph extends DocumentElement
+
+oppure anche sealed.
+
+Nel caso di non-sealed ci prendiamo noi la responsabilità.

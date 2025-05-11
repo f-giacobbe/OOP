@@ -1,0 +1,88 @@
+(non chiede all'esame)
+Nella multi-inheritance, Python LINEARIZZA la gerarchia, dunque cerca di definire un ordine parziale
+
+Dunque da:
+S erede di O
+A,B eredi di S
+C erede di A,B
+
+Python crea il seguente ordine (METHOD RESOLUTION ORDER, vale da Python 2.3):
+O, S, B, A, C
+
+
+!!!!!PER CODA SI INTENTE TUTTO CIò CHE NON è TESTA!!!!!
+
+
+
+Avendo C erede di (P1, P2, .... Pn),
+la linearizzazione L sarà
+L[C(P1,P2, ....Pn)] = [C, merge(L[P1], L[P2], .... L[Pn], [P1, P2, ...., Pn])]
+con in coda la lista di tutti gli antenati
+
+il merge(L1, L2, Ln) sarà merge([H1,T1], [H2,T2],...)
+e il risultato se H1 non appartiene a T2, a T3, ecc. fino a Tn
+=[H1, merge(remove(H1, (L1, L2, Ln)))]
+
+se invece H1 appartiene a Tk, prova con H2 (ricorsivamente)
+
+
+
+
+
+esempio di merge
+
+merge([A,B], [B,A])
+la testa della prima lista è A, che però appare nella coda di un'altra lista, quindi NON posso prenderle
+la testa della seconda lista è B, che però appare nella coda di un'altra lista
+->NON LINEARIZZABILE
+
+
+
+merge([A,B,C], [B,E,C])
+A non occorre nella coda di alcun'altra lista
+=[A, merge([B,C], [B,E,C])]		dunque rimuovo A dappertutto
+B non è in coda a nessuna lista
+=[A, B, merge([C], [E, C])]
+C non posso prenderlo in quanto in coda alla seconda lista
+prendo dunque E
+=[A, B, E, merge([C], [C])]
+adesso C va bene in quanto tecnicamente appare in coda, ma sempre anche come testa
+=[A,B,E,C]
+
+
+
+
+
+
+
+
+esempio linearizzazione
+consideriamo questo albero genealogico
+D(O)
+E(O)
+F(O)
+B(D,E)
+C(D,F)
+A(B,C)
+
+partiamo dalla linearizzazione della classe più in alto (O)
+L[O] = [O, merge(genitori)] = [O]	perché non ha genitori
+
+L[D(O)] = [D + merge(L[O], [O])] = [D + merge([O], [O])] = [D, O]
+
+L[E(O)] = [E,O]
+
+L[F(O)] = [F,O]
+
+L[B(D,E)] = [B, merge(L[D], L[E], [D,E])] = [B, merge([D, O], [E,O], [D, E])] = [B, D, E, O]
+
+L[C(D,F)] = [C, merge(L[D], L[F], [D,F])] = [C, merge([D, O], [F,O], [D,F])] = [C, D, F, O]
+
+L[A(B,C)] = [A, merge(L[B], L[C], [B,C])] = [A, merge([B, D, E, O], [C, D, F, O], [B,C])] = [A, B, C, D, E, F, O]
+
+
+
+
+
+RANGE (es. for i in range())
+il range è un oggetto

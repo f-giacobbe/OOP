@@ -1,0 +1,37 @@
+(interfacce)
+Iterable <-- Collection <-- (List, Set, Queue)
+
+                            List <-- LinkedList, ArrayList
+                            Set <-- SortedSet
+                            Queue <-- Deque
+
+Map <-- SortedMap
+
+Iterator <-- ListIterator
+
+Nelle List, ogni elemento è associato a una posizione
+
+
+
+INTERFACCIA COLLECTION<E>
+presenta i metodi:
+    Iterator<E> iterator();
+    int size;
+    boolean isEmpty();
+    boolean contains(Object o);
+    boolean containsAll(Collection<?> other);
+    boolean add(Object el);     e restituisce true se l'aggiunta ha causato un cambiamento della collezione (es. se ho una struttura che non ammette duplicati)
+    boolean addAll(Collection<..cose che poi ci spiega> other)
+    boolean remove(Object el)   e restituisce true se l'oggetto era contenuto ed effettivamente rimosso
+    boolean removeAll(Collection<?> other);
+    void clear();
+    boolean retainAll(Collection<?> other);     mantiene solo gli elementi di other
+    Object[] toArray();
+
+
+Esiste una classe AbstractCollection che implementa gran parte di questi metodi
+AbstractCollection implements Collection
+
+AbstractList extends AbstractCollection implements List
+
+

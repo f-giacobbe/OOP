@@ -1,0 +1,95 @@
+---CLONE---
+Il metodo clone() viene ereditato dalla classe Object, ma è protected, quindi va reso pubblico a
+livello di sottoclasse.
+Al clone() non interessa il tipo dell'oggetto, ma viene fatta una copia byte a byte dell'area di
+memoria, dunque è ben diverso dal costruttore per copia, e vengono quindi eseguiti i vari costrut-
+tori a catena (prima quello di Object e successivamente quelli delle sottoclassi).
+
+Si tratta ovviamente di una clonazione SUPERFICIALE, comportando l'aliasing. Se necessario, quindi
+è opportuno ridefinire il metodo clone() affinché la clonazione avvenga al livello di profondità
+da noi desiderato.
+
+Il metodo clone() di Object restituisce un Object, ma possiamo eventualmente cambiare il tipo di
+ritorno purché sia un sottotipo.
+
+    es. clonazione di CartesianPoint2D
+
+    Il metodo clone() solleva una CloneNotSupportedException, che è CHECKED
+    Nel catch non lancio una RuntimeException, perché so per certo che la classe è Cloneable,
+    dunque si tratterà di un Error generico
+
+    In questo caso abbiamo cambiato anche il tipo di ritorno e fatto il casting nel return (anche
+    se il prof la sconsiglia)
+
+    Definendo anche il costruttore per copia, possiamo fare il clone anche per costruttore per
+    copia.
+
+La prima istruzione del metodo clone() è un istanceof Cloneable, dunque se l'oggetto non implementa
+l'interfaccia Cloneable, viene restituita una CloneNotSupportedException.
+
+Cloneable è una marker-interface (come Serializable), e non ha dunque metodi.
+
+
+
+
+Facendo una classe MyCartesianPoint2D che estende CartesianPoint2D, facendo il clone() viene
+richiamato quello della classe madre (perdendo dunque il nome). Proviamo a ripristinare il vecchio
+clone e notiamo che invece il nome rimane nonostante il tipo della variabile sia CartesianPoint2D,
+in quanto viene clonato bit a bit con una locazione di memoria della STESSA dimensione.
+
+
+
+Ci sono alcuni casi in cui la clonazione può andare in un loop infinito, ad esempio nel caso di
+riferimenti circolari.
+
+
+
+Se le Stringhe non sono clonabili, come viene fatto il clone di una LinkedList<String>?
+Il clone viene fatto clonando i CONTENITORI, mentre per gli oggetti contenuti c'è aliasing.
+Dunque viene fatto un deep clone fino ai Nodi.
+
+
+
+Se la classe è la prima della gerarchia a implementare il clone() è necessario chiamare il clone
+di Object (super.clone()) racchiuso all'interno di un blocco try-catch.
+Adesso se le variabili di istanza sono di oggetti immutabili, ci va bene così, altrimenti
+ridefinisco il clone() nelle sottoclassi richiamando PRIMA la super.clone() della superclasse,
+per poi "personalizzarla" e restituire il clone. (es. MyCartesianPoint2D).
+
+
+L'unico caso in cui è accettato fare il clone tramite costruttore per copia è il caso in cui la
+classe è FINAL.
+
+
+
+
+
+
+
+
+---ACCENNO REGEX---     (regex101.com) - https://www.youtube.com/watch?v=viStxKB9iZA
+L'espressione regolare serve a definire un linguaggio; a dirci quali sono le stringhe valide in
+quel determinato linguaggio.
+    Si può o no scegliere l'opzione MULTI-LINE. Se attivata prende ogni linea singolarmente,
+mentre se disattivata viene preso il testo intero.
+
+    es. abcde       ovvero esattamente la stringa "abcde"
+
+    ^abcde          deve essere all'inizio della linea
+
+    abcde$          la linea deve finire per abcde
+
+
+    [a-z]       l'intervallo dei caratteri da a a z     . Si tratta di una CLASSE
+
+    [a-z][A-Z]      una lettera minuscola SEGUITA da una lettera maiuscola
+
+    [a-zA-Z_]       Il primo carattere può essere anche un underscore
+
+    [a-zA-Z_][a-zA-Z_0-9]*  carattere della prima classe seguito da un carattere della seconda
+                            classe con 0-9 occorrenze. L'asterisco indica che quello che precede
+                            può occorrere 0 o più volte.
+
+    [^a-zA-Z_][a-zA-Z_0-9]*     con l'apice sto negando la prima classe
+
+    &&      intersezione tra due classi     [a-z&&[^bc]]

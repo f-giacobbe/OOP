@@ -1,0 +1,41 @@
+---SEQUENCES---
+    -Container sequences (es. list)     contiene oggetti eterogenei
+            Mutabili come list e deque
+            Non mutabili come tuple
+
+    -Flat sequence      oggetti dello stesso tipo
+            Mutabili come array, bytearray
+            Immutabili come bytes, str
+
+
+
+
+---LIST COMPREHENSIONS / GENERATOR EXPRESSIONS---
+Le list comprehensions sono tra parentesi quadre (generano delle liste)
+
+    es. symbols = "%£$&"
+        codes = [ord(symbol) for s in symbols]         equivale a un ciclo for
+
+      oppure
+        codes = [ord(symbol) for s in symbols if ord(s) > 127]
+
+
+      oppure con le Lambda
+        codes = list(filter(lambda c : c > 127, map(ord, symbols)))
+
+
+
+Possiamo usarli per generare prodotti cartesiani:
+
+    es. colors = ["black", "red"]
+        sizes = ["S", "M", "L"]
+        tshirts = [(color, size) for color in colors for size in sizes]
+
+
+
+
+
+
+
+---GENERATOR EXPRESSIONS---
+Per generare tuple, array e altri tipi di sequenza.

@@ -1,0 +1,40 @@
+PRINCIPIO DI LISKOV
+Ovvero il principio di sostituibilità dei tipi (per eredità), che afferma che se abbiamo un tipo
+T e un suo sottotipo S, deve valere che in ciascun punto in cui si attende un oggetto di tipo
+T, è possibile fornire un oggetto di tipo S SENZA alterare il corretto funzionamento del sistema.
+
+Ovvero un'istanza di S è a tutti gli effetti anche un istanza di T.
+
+-> Una classe può essere inherited solo se è progettata per esserlo!
+
+Esempio di classe Stack, erede di Vector (classi standard di java) che NON rispetta questo
+principio. Infatti la classe Vector non prevede la politica LiFo tipica invece dello Stack.
+Sarebbe stato più furbo infatti creare un'INTERFACCIA Stack, poi basata su un Vector (che viene
+dunque nascosto dall'esterno)
+
+
+
+
+
+GESTIONE DELLE ECCEZIONI
+In java esiste una classe Throwable (sollevabile in italiano)
+Un oggetto di tipo Throwable può essere sollevato (vedi TestThrowable), anche se raramente
+viene utilizzato direttamente, in quanto troppo generico.
+Throwable è la classe di base,
+    al di sotto abbiamo gli Error (segnala un errore alla jvm)
+    allo stesso livello abbiamo le Exception (quelle che useremo noi).
+Quando viene sollevata un'eccezione, qualcosa DI CUI IL PROGRAMMATORE PUO TENERE CONTO è
+successa.
+Questo tipo di eccezioni sono nello specifico RuntimeException; mentre allo stesso livello delle
+RuntimeException abbiamo le eccezioni esterne (es. accesso negato a un file), chiamate CHECKED.
+Le eccezioni figlie di RuntimeException sono eccezioni UNCHECKED.
+Dunque tutte le eccezioni non istanze di RuntimeException sono checked, e il programmatore
+non può ignorarle.
+
+Sono obbligatori i try & catch quando ci sono le eccezioni CHECKED, mentre sono DA EVITARE
+nelle RuntimeException (unchecked)
+
+E' utile chiamare le eccezioni opportunamente per capire dove sono gli errori.
+
+Ad esempio, nel caso di un'eccezione CHECKED, che estende quindi Exception direttamente, è
+OBBLIGATORIO il blocco try/catch, altrimenti neanche viene compilato il codice.

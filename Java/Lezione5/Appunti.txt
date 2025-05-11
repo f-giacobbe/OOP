@@ -1,0 +1,35 @@
+EREDITARIETA
+La classe che estendo ha delle proprietà pubbliche, dunque l'erede eredita tutto ciò che è
+dichiarato PUBLIC della classe che viene ereditata
+           //////
+
+IMPORTANTE - Una classe può ereditare al massimo una superclasse (a differenza delle implementazioni
+di interfacce)
+
+Quando creo un nuovo oggetto di un sottotipo, le interfacce ovviamente non hanno alcun peso in
+memoria in quanto astratte, viene allocata della memoria come segue:
+    -una parte dedicata alla classe Object;
+    -una parte dedicata alla superclasse SC;
+    -una parte dedicata alla sottoclasse C.
+
+Per creare un oggetto viene eseguita una catena di costruttori, a partire dal più generico (Object).
+Dietro le quinte viene eseguito un super(); - ovvero viene invocato il costruttore della classe
+soprastante
+
+è importantissimo non esporre un oggetto prima che la sua costruzione sia stata eseguita completa-
+mente, altrimenti si rischia di esporlo prima che sia in uno stato consistente
+
+
+
+///
+Tutte le classi sono istanze della classe Class, quindi il getClass() restituisce l'istanza di
+classe Class.
+
+
+///
+differenza tra getClass() e instanceof
+-getClass() restituisce l'istanza del tipo più specifico
+-instanceof controlla se tra tutti i tipi uno rispecchia ciò che viene dopo
+
+sintassi (o instanceof CartesianPoint2D that)
+fa anche il CartesianPoint2D that = (CartesianPoint2D) o;

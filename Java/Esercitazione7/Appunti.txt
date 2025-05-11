@@ -1,0 +1,35 @@
+Javadocs
+@param parametri del metodo
+@return
+@throws
+@see riferimenti a ulteriori risorse o doc
+@deprecated non andrebbe più utilizzato
+
+
+
+---GUI---
+In java la GUI funziona tramite Swing, dove abbiamo diversi elementi:
+    -JFrame - la finestra principale
+    -JPanel - container per componenti GUI
+    -Componenti - pulsanti, etichette, ecc.
+    -Layout manager - gestisce la disposizione dei componenti
+
+tra i componenti invece:
+    -JButton
+    -JLabel
+    -JTextField
+    -JTextArea
+    -JCheckBox
+    -JRadioButton
+    -JComboBox (menu a tendina)
+
+e per gli eventi:
+    -ActionListener
+    -KeyListener
+    -MouseListener
+
+Si possono usare i LAYOUT MANAGER per controllare come i componenti sono disposti nella finestra,
+attraverso vari tipi di Layout:
+    -FlowLayout - dispone i componenti in fila
+    -BorderLayout - divide la finestra in aree (nord, sud, est, ovest, centro)
+    -GridLayout

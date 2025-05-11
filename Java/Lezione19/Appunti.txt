@@ -1,0 +1,42 @@
+--STREAM--
+Da non confondere con gli IOStream (quelli della lezione precedente).
+Servono a creare flussi di oggetti (es. flusso di dati a partire da un array). In generale da una
+Collection è sempre possibile ottenere un flusso (è sufficiente iterare sulla collezione).
+
+Esiste un'interfaccia java.util.Stream
+
+Gli Stream sono fatti apposta per funzionare con le Lambda Expression
+
+
+OPTIONAL - per evitare NullPointerException. L'oggetto Optional poi può a sua volta contenere un
+oggetto oppure non contenere eventualmente nulla. Restituisce comunque un oggetto, motivo per cui
+anche se non contiene nulla non può essere lanciata una NullPointerException
+
+
+
+
+
+
+--SERIALIZATION--
+Si tratta di memorizzare degli oggetti su file per potervi accedere in un secondo momento, tuttavia,
+non nasce per questo scopo: nasce per poter permettere il trasferimento di oggetti, ma non per
+long-term storage, per cui è altamente sconsigliato l'utilizzo della serializzazione, in quanto
+il suo meccanismo è altamente dinamico sia rispetto alla versione della jvm che rispetto alla
+versione del nostro programma.
+Perciò risulta utile definire un formato di rappresentazione standard
+
+Gli oggetti devono implementare Serializable.
+
+Ogni oggetto è salvato con un numero di serie, dunque al posto dei puntatori ad aree di memoria
+(che non avrebbero senso in quanto varierebbero gli indirizzi), ho proprio il numero di serie.
+    Se il numero di serie è incontrato per la prima volta, lo salvo nello stream, altrimenti
+utilizzo quello già salvato in quanto l'ObjectOutputStream si tene conto di una mappa con Object
+e long(serial), da cui verifica se l'oggetto è presente oppure no.
+
+La deserializzazione invece utilizza una mappa inversa, ovvero di <Long, Object>. NON viene utiliz-
+zato il costruttore, ma vengono ricopiate direttamente in memoria le informazioni
+
+
+Se abbiamo un campo che NON vogliamo venga serializzato, lo markiamo come TRANSIENT e nella dese-
+rializzazione sarà null, ad esempio.
+    La serializzazione è quindi un processo che può essere personalizzato.

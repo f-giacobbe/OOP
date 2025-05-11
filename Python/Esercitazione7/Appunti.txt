@@ -1,0 +1,32 @@
+Tkinter è la libreria standard per la creazione di GUI in Python, ed è object oriented ed è
+un wrapper della libreria TCL-TK (basata su C). è importante perché cross-platform
+
+Esiste una gerarchia: label è contenuta in root
+Esiste un widget, in questo caso una label
+Esiste un gestore dello spazio (la funzione pack() che rimpicciolisce la finestra e centra la label)
+Esiste un main loop che si occupa di intercettare gli input dell'utente e reagire in modo adeguato.
+
+I widget sono i componenti fondamentali delle GUI e permettono all'utente di interagire con l'applicazione
+Tipi di widget:
+    -label - visualizza testo o immagini
+    -button
+    -entry - input di testo
+    -text - input di testo su più righe
+    -frame - container di widget
+    -checkbutton
+    -radiobutton
+
+Esistono gestori di geometria per posizionare i widget:
+    -pack() li mette in ordine
+    -grid() li organizza in una griglia
+    -place() posizionamento assoluto dei widget
+
+
+Gli EVENTI sono ad esempio click del mouse, pressione di un tasto, movimenti del mouse.
+Si fa attraverso il metodo bind() che associa un evento a una funzione
+
+    widget.bind("<evento>", funzione)
+
+    <KeyPress>
+    <Button-1>
+    <Motion>

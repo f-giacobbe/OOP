@@ -1,0 +1,19 @@
+Il COUNTER è una sottoclasse di un dizionario, dove la chiave è l'oggetto di cui vogliamo contare
+le occorrenze e il valore è il numero di ripetizioni
+
+ORDERED DICT è un dizionario che mantiene l'ordine di inserimento
+
+DEQUE è per una gestione efficiente di code e pile per quanto riguarda pop e append
+
+DEFAULT DICT è un dizionario con valori di default
+
+USER COLLECTION sono collezioni modificabili dall'utente (es. userString)
+
+NamedTuple restituisce una tupla con nomi per ogni posizione
+    es. tupla student:
+        il primo elemento è first_name
+        il secondo last_name
+        il terzo DOB
+
+invece che ricordarci la posizione dell'indice, possiamo accedere agli elementi usando i loro nomi,
+come first_name

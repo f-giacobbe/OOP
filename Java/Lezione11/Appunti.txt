@@ -1,0 +1,46 @@
+LIBRERIA STANDARD
+
+-Interface Iterator<E> di java.util
+
+con metodi next(), hasNext(), e remove(), dove l'unico di default è remove().
+
+Serve da cursore su una struttura dati
+
+next() in particolare fa due operazioni: va avanti col cursore e allo stesso tempo ti restituisce
+l'oggetto che è stato "scavalcato"
+
+remove() rimuove l'ultimo elemento "scavalcato" dal next(); NON posso fare due remove() di seguito,
+in quanto deve essere sempre preceduta da un next()
+
+
+
+-Interface Iterable<T> di java.lang
+
+viene implementata su una struttura sulla quale si può iterare, che quindi può restituire un iteratore
+
+l'unico metodo che ci interessa è il metodo iterator(), che crea un iteratore e lo restituisce
+
+Inoltre, se viene implementata l'interfaccia Iterable, possiamo usare il for-by-item, che utilizza
+dietro le quinte gli iteratori
+
+
+
+
+
+In java posso dichiarare una classe dentro una classe (pubblica o privata) - INNER CLASS
+Le classi interne, se private, possono essere istanziate solo nella classe che la contengono
+Se invece la classe interna è pubblica, allora è visibile anche dall'esterno come Outer.Inner,
+tuttavia NON è possibile fare new Outer.Inner() ma devo fare così:
+
+Outer o = new Outer();
+Outer.Inner v = o.new Inner();
+
+perché le classi inner sono create dalla classe Outer, quindi devo prima avere un'istanza della classe
+Outer
+
+posso fare riferimento a un oggetto della classe Outer scrivendo Outer.this
+
+
+
+Esistono anche le INNER CLASS STATICHE - dove ad esempio non posso accedere alle variabili di
+istanza, ma solo ai metodi/variabili statici

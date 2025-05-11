@@ -1,0 +1,19 @@
+jar - crea e gestisce file jar (pacchetti di classi)
+java - launcher per java app
+javac - compilatore
+javadoc - genera documentazinoe
+jdb - debugger
+jdeps - risolve dipendenze tra classi
+javap - disassemblatore
+    -c prints out disassembled code
+    -v verbose
+    -p classi
+
+
+
+Possiamo testare la classe Point2D senza il main, utilizzando la JavaShell.
+Il simbolo pipe indica l'output fornito dalla jshell.
+Nella jshell non è necessario il ; per terminare la riga di comando
+è possibile definire dei metodi all'interno della jshell
+
+/env --class-path=.

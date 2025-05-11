@@ -1,0 +1,61 @@
+Il TreeSet ha bisogno di un ordinamento TOTALE, altrimenti perdo dati. Infatti, quando
+il compare dà 0, per lui è un equals
+
+
+
+
+
+Tutte le interfacce che hanno UN SOLO metodo astratto sono dette FUNZIONALI, in quanto possono
+corrispondere a degli oggetti che portano con sé delle funzioni (es. comparator, actionListener).
+Tutti questi oggetti possono essere sostituiti da un'ESPRESSIONE LAMBDA, che sostituisce quell'unica
+espressione ovunque ci si aspetti un oggetto di quell'interfaccia
+
+
+
+
+
+RIFERIMENTI A METODI (attraverso 3 forme sintattiche)
+    1) object :: instanceMethod
+
+        es. System.out :: println
+
+             classe.oggetto
+
+            faccio un riferimento al metodo println
+
+
+        invocato sull'oggetto
+
+
+    2) class :: staticMethod
+
+        es. Math :: max
+
+        invocato sulla classe
+
+
+    3) class :: instanceMethod
+
+        es. String :: compareTo
+
+        invocato sul primo parametro
+
+
+es.
+m(Comparator<String> c) {
+...
+}
+
+al posto di Comparator<String> c posso fornire una lambda expression:
+
+(s1, s2) -> { }
+
+oppure posso invocarlo nella seguente maniera:
+
+m(String :: compareTo);
+
+
+
+
+RIFERIMENTO AL COSTRUTTORE DI UNA CLASSE
+es. String :: new

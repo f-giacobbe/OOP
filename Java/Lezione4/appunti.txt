@@ -1,0 +1,7 @@
+EREDITARIETA - INHERITANCE
+quando creo una classe senza extends, c'è sempre un extends implicito, ovvero
+
+    extends java.lang.Object
+
+quando definisco l'equals, ad esempio, di una classe, in realtà sto facendo l'override del metodo
+equals della classe madre Object

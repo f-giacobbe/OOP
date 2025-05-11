@@ -1,0 +1,30 @@
+--RECORD--
+Definisce oggetti immutabili
+E' comodo perché ha già definito i metodi ereditati da Object (toString, hashCode, equals),
+dove due oggetti sono uguali se e solo se i loro campi sono esattamente uguali, e i getters.
+
+Un record può implementare interfacce (es. Comparable), tuttavia non può estendere né essere esteso.
+
+Inoltre, posso controllare la costruzione attraverso il costruttore
+
+es. public Monomial {
+        if (degree < 0) throw new RuntimeException();
+    }
+
+
+
+
+
+--ENUMERATION--
+Per tipi di dati che possono assumere un numero FINITO di valori, dunque di istanze
+
+
+
+
+--TIPI DI SWITCH--
+case 3:
+    ...
+ma è il più brutto perché ereditato da c, perché entra nel primo case che c'entra e si ferma solo
+al BREAK, altrimenti continua negli altri casi
+
+esiste un case migliore con la freccia (vedi CardEx), che NON NECESSITA IL BREAK
